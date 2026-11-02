@@ -170,7 +170,7 @@ export default function Finder({ selectedId }: { selectedId?: string }) {
     : null;
 
   const list = (
-    <div className={selected ? "hidden lg:block" : ""}>
+    <div className={selectedId ? "hidden lg:block" : ""}>
       <p className="text-xs sm:text-[13px] font-bold uppercase tracking-[0.14em] text-plum">{COPY.finder.kicker}</p>
       <h1 className="mt-2 text-3xl sm:text-4xl font-black uppercase leading-[0.95] tracking-tight text-ink">{COPY.finder.title}</h1>
 
@@ -279,7 +279,7 @@ export default function Finder({ selectedId }: { selectedId?: string }) {
       {list}
 
       {/* Reading panel: beside the list on desktop, the whole page on phones */}
-      <div className={selected ? "" : "hidden lg:block"}>
+      <div className={selectedId ? "" : "hidden lg:block"}>
         <div
           ref={panelRef}
           className="lg:sticky lg:top-24 lg:h-[calc(100vh-7.5rem)] lg:overflow-y-auto lg:rounded-2xl lg:border-2 lg:border-line lg:p-7"
