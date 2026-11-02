@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, Search, X } from "lucide-react";
-import { CLAUSES, PRIORITY_KEYS, PRIORITY_LABELS, README_SECTIONS, THEME_ORDER } from "../data";
+import { CLAUSES, PRIORITY_KEYS, PRIORITY_LABELS, THEME_ORDER } from "../data";
 import type { PriorityKey } from "../data";
-import { clauseById } from "../content";
+import { READ_ME, clauseById } from "../content";
 import { highlight, search } from "../search";
 import type { Hit } from "../search";
 import ClauseDetail from "../components/ClauseDetail";
@@ -82,7 +82,7 @@ function ResultRow({
 
 /** Shown in the reading panel before a clause is picked: how a clause is laid out. */
 function HowToRead() {
-  const notes = README_SECTIONS.find((s) => s.heading === "Notes on Organization: Rows and Columns");
+  const notes = READ_ME.find((s) => s.heading === COPY.readMe.notesHeading);
   return (
     <div className="max-w-2xl">
       <p className="text-xs font-bold uppercase tracking-[0.14em] text-plum">{COPY.finder.panelHint}</p>

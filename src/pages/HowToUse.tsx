@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import { AlertTriangle } from "lucide-react";
-import { README_SECTIONS, SUBTITLE, THEME_INDEX_INTRO, THEME_INDEX_TITLE, TITLE } from "../data";
+import { SUBTITLE, THEME_INDEX_INTRO, THEME_INDEX_TITLE, TITLE } from "../data";
 import { Kicker, PageTitle } from "../components/ui";
-import { CLAUSE_ID_RE, SPREADSHEET_FILE, clauseById, clausesByTheme } from "../content";
+import { CLAUSE_ID_RE, READ_ME, SPREADSHEET_FILE, clauseById, clausesByTheme } from "../content";
 import { to } from "../router";
 import { COPY } from "../copy";
 
@@ -44,9 +44,9 @@ function Line({ text }: { text: string }) {
 }
 
 export default function HowToUse() {
-  const important = README_SECTIONS.find((s) => s.heading === "IMPORTANT!");
-  const about = README_SECTIONS.find((s) => s.heading === "About");
-  const body = README_SECTIONS.filter((s) => s !== important && s !== about);
+  const important = READ_ME.find((s) => s.heading === "IMPORTANT!");
+  const about = READ_ME.find((s) => s.heading === "About");
+  const body = READ_ME.filter((s) => s !== important && s !== about);
   const onPage = [...body.map((s) => s.heading), COPY.howTo.importantLink, THEME_INDEX_TITLE, "About"];
 
   return (

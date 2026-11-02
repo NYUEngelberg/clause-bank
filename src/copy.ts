@@ -75,6 +75,14 @@ export const COPY = {
     noMatches: "No clauses match these filters.",
   },
 
+  // Replaces the spreadsheet's "Notes on Organization: Rows and Columns" heading
+  // and its first paragraph on the site (the site isn't laid out in rows and columns).
+  readMe: {
+    notesHeading: "Notes on Organization",
+    notesIntro:
+      "Click on any clause in the lefthand column to see the same clause in three versions, arranged left to right in the order you will use them during a negotiation.",
+  },
+
   howTo: {
     kicker: "From the spreadsheet’s Read Me First tab",
     title: "How to Use",
