@@ -13,7 +13,7 @@ export const COPY = {
     find: "Find a clause",
     table: "Table",
     howTo: "How to Use",
-    book: "Read the book",
+    book: "Companion document",
     downloadButton: ".xlsx",
     download: "Download the spreadsheet (.xlsx)",
     menu: "Menu",
@@ -43,7 +43,7 @@ export const COPY = {
   },
 
   clause: {
-    area: "Area",
+    area: "Areas",
     high: "High priority",
     medium: "Medium priority",
     copy: "Copy",
@@ -57,7 +57,7 @@ export const COPY = {
     kicker: "Clause Bank",
     title: "Table",
     intro: (total: number) =>
-      `All ${total} clauses in one table, with five priority columns. Filter by an area to get the shortlist for one need, or read across a row to see the entire clause.`,
+      `All ${total} clauses in one table, with five priority columns. Filter by an area to get the shortlist for one need, or click a row to see the entire clause.`,
     priorityLink: "How the priority columns work",
     searchPlaceholder: "Search all text",
     allThemes: "All themes",
@@ -141,6 +141,10 @@ export const COPY = {
         to: "",
       },
       {
+        from: "reference the separate Risk Assessment Scorecard",
+        to: "reference the separate Risk Exposure Scorecard",
+      },
+      {
         from: "Use the Clause ID to find each clause in the Clause Bank tab.",
         to: "Click a clause to open it.",
       },
@@ -148,6 +152,9 @@ export const COPY = {
   },
 
   howTo: {
+    // On How to Use there's no clause list beside the Notes, so point to where the clauses are.
+    notesIntroFrom: "Click on any clause in the list",
+    notesIntroTo: "Click on any clause in Find a clause or the Theme Index below",
     kicker: "From the Clause Bank spreadsheet",
     title: "How to Use",
     onThisPage: "On this page",
@@ -158,7 +165,7 @@ export const COPY = {
     published: "Published by",
     and: "and",
     explore: "Explore",
-    book: "Read the book (companion document)",
+    book: "Companion document",
     notLegalAdvice: "Not legal advice",
   },
 };

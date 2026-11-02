@@ -61,7 +61,10 @@ function Line({ text }: { text: string }) {
 export default function HowToUse() {
   const important = READ_ME.find((s) => s.heading === "IMPORTANT!");
   const about = READ_ME.find((s) => s.heading === "About");
-  const body = READ_ME.filter((s) => s !== important && s !== about);
+  const body = READ_ME.filter((s) => s !== important && s !== about).map((s) => ({
+    ...s,
+    body: s.body.map((l) => l.replace(COPY.howTo.notesIntroFrom, COPY.howTo.notesIntroTo)),
+  }));
   const onPage = [...body.map((s) => s.heading), COPY.howTo.importantLink, THEME_INDEX_TITLE, "About"];
 
   return (
