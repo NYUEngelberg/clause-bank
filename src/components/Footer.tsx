@@ -1,13 +1,13 @@
 import Logo from "./Logo";
 import { NAV } from "./Header";
 import { to } from "../router";
-import { BOOK_URL, SPREADSHEET_FILE } from "../content";
+import { BOOK_URL, READ_ME, SPREADSHEET_FILE } from "../content";
 import { COPY } from "../copy";
-import { README_SECTIONS, SUBTITLE } from "../data";
+import { SUBTITLE } from "../data";
 
-// Sentences taken from the spreadsheet's Read Me First tab, so they always match it.
-const important = README_SECTIONS.find((s) => s.heading === "IMPORTANT!")?.body ?? [];
-const about = README_SECTIONS.find((s) => s.heading === "About")?.body ?? [];
+// Sentences from the spreadsheet's Read Me First tab (with the site's edits).
+const important = READ_ME.find((s) => s.heading === "IMPORTANT!")?.body ?? [];
+const about = READ_ME.find((s) => s.heading === "About")?.body ?? [];
 const disclaimer = important.find((l) => l.includes("not legal advice")) ?? "";
 const copyright = about.find((l) => l.startsWith("©")) ?? "";
 const license = about.find((l) => l.startsWith("Licensed for use under")) ?? "";

@@ -1,16 +1,31 @@
 import type { ReactNode } from "react";
 import { AlertTriangle } from "lucide-react";
-import { SUBTITLE, THEME_INDEX_INTRO, THEME_INDEX_TITLE, TITLE } from "../data";
+import { SUBTITLE, THEME_INDEX_TITLE, TITLE } from "../data";
 import { Kicker, PageTitle } from "../components/ui";
-import { CLAUSE_ID_RE, READ_ME, SPREADSHEET_FILE, clauseById, clausesByTheme } from "../content";
+import { BOOK_URL, CLAUSE_ID_RE, READ_ME, SPREADSHEET_FILE, THEME_INDEX_INTRO_SITE, clauseById, clausesByTheme } from "../content";
 import { to } from "../router";
 import { COPY } from "../copy";
 
 const LABEL = /^([A-Z][A-Za-z'’\- ?]{2,45}):\s+(.+)$/;
 const slug = (s: string) => "readme-" + s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-/** Text with clause IDs (e.g. GS-LG) linked to the clause. */
+/** Text with clause IDs (e.g. GS-LG) linked to the clause, and [[companion document]] linked to the book. */
 function Linked({ text }: { text: string }) {
+  const parts = text.split(/\[\[(.+?)\]\]/);
+  if (parts.length > 1)
+    return (
+      <>
+        {parts.map((p, i) =>
+          i % 2 ? (
+            <a key={i} href={BOOK_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-plum underline underline-offset-2">
+              {p}
+            </a>
+          ) : (
+            <Linked key={i} text={p} />
+          )
+        )}
+      </>
+    );
   const out: ReactNode[] = [];
   let last = 0;
   for (const m of text.matchAll(CLAUSE_ID_RE)) {
@@ -98,7 +113,7 @@ export default function HowToUse() {
 
       <section id={slug(THEME_INDEX_TITLE)} className="mt-14">
         <h2 className="mb-3 text-2xl font-black uppercase tracking-tight text-ink">{THEME_INDEX_TITLE}</h2>
-        <p className="mb-6 text-[1.0625rem] leading-relaxed text-ink">{THEME_INDEX_INTRO}</p>
+        <p className="mb-6 text-[1.0625rem] leading-relaxed text-ink">{THEME_INDEX_INTRO_SITE}</p>
         <div className="space-y-6">
           {clausesByTheme.map((t) => (
             <div key={t.slug}>
